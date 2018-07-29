@@ -31,3 +31,22 @@ with open('synset.txt', 'r') as f:
     labels = [l.rstrip() for l in f]
 
 
+# ** Predicting:
+
+def get_image2(imageAddress, show=True):
+    # load and show the image
+    img = cv2.cvtColor(cv2.imread(imageAddress), cv2.COLOR_BGR2RGB)
+    if img is None:
+         return None
+    if show:
+         plt.imshow(img)
+         plt.axis('off')
+         plt.show()
+    # convert into format (batch, RGB, width, height)
+    img = cv2.resize(img, (224, 224))
+    img = np.swapaxes(img, 0, 2)
+    img = np.swapaxes(img, 1, 2)
+    img = img[np.newaxis, :]
+    return img
+
+
