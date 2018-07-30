@@ -49,4 +49,15 @@ def get_image2(imageAddress, show=True):
     img = img[np.newaxis, :]
     return img
 
+def predict2(imageAddress):
+    img = get_image2(imageAddress, show=True)
+    # compute the predict probabilities
+    mod.forward(Batch([mx.nd.array(img)]))
+    prob = mod.get_outputs()[0].asnumpy()
+    # print the top-5
+    prob = np.squeeze(prob)
+    a = np.argsort(prob)[::-1]
+    for i in a[0:5]:
+        print('probability=%f, class=%s' %(prob[i], labels[i]))
+
 
