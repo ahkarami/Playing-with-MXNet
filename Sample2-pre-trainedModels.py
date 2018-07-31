@@ -49,6 +49,7 @@ def get_image2(imageAddress, show=True):
     img = img[np.newaxis, :]
     return img
 
+
 def predict2(imageAddress):
     img = get_image2(imageAddress, show=True)
     # compute the predict probabilities
@@ -59,5 +60,10 @@ def predict2(imageAddress):
     a = np.argsort(prob)[::-1]
     for i in a[0:5]:
         print('probability=%f, class=%s' %(prob[i], labels[i]))
+
+
+# *** Some Predictions:
+sampleInputImage = 'Shoe1.jpg'
+predict2(sampleInputImage)
 
 
