@@ -26,6 +26,8 @@ print(a4.shape, a4.size, a4.dtype)
 a5 = a3 * a4  # element-wise multiplication
 print(a5)
 
+print(a5.exp())
+
 a6 = nd.dot(a5, a2.T)
 print(a6)
 
