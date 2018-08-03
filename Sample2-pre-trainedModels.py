@@ -63,7 +63,7 @@ def predict2(imageAddress):
 
 
 # *** Some Predictions:
-sampleInputImage = 'Shoe1.jpg'
+sampleInputImage = 'Shoe1.jpg'  # sample input image 
 predict2(sampleInputImage)
 
 
